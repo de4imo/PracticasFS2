@@ -1,0 +1,28 @@
+<h2>Formulario de Registro de Usuario - Reactivo</h2>
+
+<form (submit)="submit()" [formGroup]="registerForm">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" formControlName="username">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" formControlName="password">
+    </div>
+
+    <div class="form-group">
+        <label for="suscripcion">Elija el tipo de subscripción</label>
+        <select class="form-control" id="suscripcion" name="suscripcion" formControlName="suscripcion">
+            <option *ngFor="let suscripcion of suscripciones"  [value]="suscripcion.value">{{suscripcion.text}}</option>
+        </select>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" formControlName="promociones">
+        <label class="form-check-label" for="promociones">Deseo recibir promociones</label>
+    </div>
+
+    <button type="submit" class="btn btn-sucess">Enviar</button>
+    <button type="button" class="btn btn-default" (click)="refrescar()">Refrescar</button>
+
+</form>
